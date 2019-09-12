@@ -1,0 +1,24 @@
+body {
+  text-align: center;
+}
+
+#root {
+  width: 600px;
+  margin: 0 auto 0 auto;
+}
+
+input {
+  display: block;
+  margin: 10px auto 10px auto;
+  width: 125px;
+}
+
+.selectBox {
+  text-align: left;
+  width: 150px;
+  margin: 0 auto 5px auto;
+}
+
+select {
+  width: 150px;
+}
