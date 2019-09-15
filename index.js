@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 const uri = "mongodb+srv://roman:20051989@cluster0-vnual.mongodb.net/BotsCrew?retryWrites=true&w=majority";
-mongoose.connect(uri, {useNewUrlParser: true});
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 app.use(express.static('public'));
