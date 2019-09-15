@@ -9,11 +9,9 @@ const departmentSchema = new Schema({
   },
   lectors: [
     {
-      lector: {
-        type: ObjectId,
-        ref: 'Lector',
-        required: true
-      }
+      type: ObjectId,
+      ref: 'Lector',
+      required: true
     }
   ],
   head: {

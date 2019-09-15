@@ -40,7 +40,7 @@ async function populatedb() {
     dataDepartment.head = employees[i];
 
     for (let j = 0; j < Math.floor(Math.random() * (6 - 3)) + 3; j++) {
-      lectors.push({lector: employees[Math.floor(Math.random() * employees.length)]});
+      lectors.push(employees[Math.floor(Math.random() * employees.length)]);
     }
 
     dataDepartment.lectors = lectors;

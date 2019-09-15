@@ -1,6 +1,7 @@
 const express = require('express');
 const indexRouter = require('./routes/startPage');
 const departmentRouter = require('./routes/department');
+const lectorsRouter = require('./routes/lectors');
 const mongoose = require('mongoose');
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.static('dist'));
 app.use(express.json()) ;
 app.use('/', indexRouter);
 app.use('/department', departmentRouter);
+app.use('/lectors', lectorsRouter);
 
 
 app.listen(3000, function () {

@@ -8,9 +8,11 @@ class App extends Component {
       selectedDepartment: '',
       listDepartment: [],
       resMessage: '',
+      searchString: '',
     };
     this.handleButton = this.handleButton.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   componentDidMount() {
@@ -34,7 +36,8 @@ class App extends Component {
   handleButton(event) {
     fetch(event.target.dataset.uri, {
       method: 'POST',
-      body: JSON.stringify({name: this.state.selectedDepartment}),
+      body: JSON.stringify({name: this.state.selectedDepartment,
+                            searchString: this.state.searchString}),
       headers:{
         'Content-Type': 'application/json'
       }
@@ -51,7 +54,13 @@ class App extends Component {
 
   handleChange(event) {
     this.setState({
-      selectedDepartment: event.target.value 
+      selectedDepartment: event.target.value
+    });
+  }
+
+  handleInput(event) {
+    this.setState({
+      searchString: event.target.value
     });
   }
 
@@ -81,8 +90,8 @@ class App extends Component {
           <fieldset>
 
             <legend>Search lector.</legend>
-            <input type='text' placeholder='Enter name' />
-            <input type='button' value='Search' />
+            <input type='text' placeholder='Enter name' onChange={this.handleInput} />
+            <input type='button' value='Search'  data-uri='lectors/search' onClick={this.handleButton} />
 
           </fieldset>
 
