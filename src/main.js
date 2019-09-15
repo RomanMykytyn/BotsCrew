@@ -23,8 +23,6 @@ class App extends Component {
       }
     }).then(res => res.json())
       .then(response => {
-        console.log('Успех:', JSON.stringify(response));
-        console.log(response);
         this.setState({
           listDepartment: response,
           selectedDepartment: response[0].name
@@ -43,8 +41,6 @@ class App extends Component {
       }
     }).then(res => res.json())
       .then(response => {
-        console.log('Успех:', JSON.stringify(response));
-        console.log(response);
         this.setState({
           resMessage: response.message
         });
@@ -68,7 +64,6 @@ class App extends Component {
       return (
         <div>
           <fieldset>
-
             <legend>Department info.</legend>
             <div className='selectBox'>
               <label htmlFor='select'>Select department:</label><br />
@@ -76,30 +71,24 @@ class App extends Component {
                 {this.state.listDepartment.map(el =>
                   (<option key={el.id}>
                     {el.name}
-                    </option>))}
-                    </select>
+                   </option>))}
+              </select>
             </div>
-
             <input type='button' value='Get head' data-uri='department/head' onClick={this.handleButton} />
             <input type='button' value='Show statistic' data-uri='department/statistic' onClick={this.handleButton} />
             <input type='button' value='Average salary' data-uri='department/salary' onClick={this.handleButton} />
             <input type='button' value='Count lectors' data-uri='department/count' onClick={this.handleButton} />
-
           </fieldset>
 
           <fieldset>
-
             <legend>Search lector.</legend>
             <input type='text' placeholder='Enter name' onChange={this.handleInput} />
             <input type='button' value='Search'  data-uri='lectors/search' onClick={this.handleButton} />
-
           </fieldset>
 
           <fieldset>
-
             <legend>Result.</legend>
             <textarea rows='5' cols='40' value={this.state.resMessage} readOnly />
-
           </fieldset>
 
         </div>
